@@ -4,7 +4,7 @@ path=$PWD
 
 if [ $# -ne 3 ]
   then
-    echo "Usage: ${0} \"ES host\"  \"hostname\" \"version number\""
+    echo "Usage: ${0} \"ES host\"  \"hostname\" \"new index version number\""
     echo
     echo "Example: ${0} 172.16.46.240 analytics-2016.01.31 3"
     exit 1
