@@ -1,0 +1,229 @@
+{
+  "properties": {
+    "attributes": {
+      "properties": {
+        "app_name": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "artist": {
+          "properties": {
+            "name": {
+                "index": "not_analyzed",
+                "type": "string"
+            }
+          }
+        },
+        "audio_resource": {
+          "properties": {
+            "isrc": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "name": {
+              "index": "not_analyzed",
+              "type": "string"
+            }
+          }
+        },
+        "audio_resource_id": {
+          "type": "long"
+        },
+        "build": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "device_manufacturer": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "device_model": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "device_type": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "is_cached": {
+          "type": "boolean"
+        },
+        "is_preview": {
+          "type": "boolean"
+        },
+        "message": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "method": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "p_audio_started": {
+          "type": "long"
+        },
+        "p_checks_performed": {
+          "type": "long"
+        },
+        "p_connectivity": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "p_download_response": {
+          "type": "long"
+        },
+        "p_finished_download": {
+          "type": "long"
+        },
+        "p_initialising_av_player": {
+          "type": "long"
+        },
+        "p_obtained_stream_url": {
+          "type": "long"
+        },
+        "p_ui_interaction_start_time": {
+          "type": "long"
+        },
+        "page_name": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "playlist": {
+          "properties": {
+            "name": {
+              "index": "not_analyzed",
+                "type": "string"
+              }
+          }
+        },
+        "playlist_id": {
+          "type": "long"
+        },
+        "source": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "stacktrace": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "time": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "time_played": {
+          "type": "long"
+        },
+        "url": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "user": {
+          "properties": {
+            "age": {
+              "type": "long"
+            },
+            "birth_date": {
+              "properties": {
+                "date": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "timezone": {
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "timezone_type": {
+                  "type": "long"
+                }
+              }
+            },
+            "email": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "facebook_user": {
+              "type": "boolean"
+            },
+            "gender": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "is_promotional": {
+              "type": "boolean"
+            },
+            "name": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "on_trial": {
+              "type": "boolean"
+            },
+            "territory": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "territory_id": {
+              "type": "long"
+            },
+            "territory_name": {
+              "index": "not_analyzed",
+              "type": "string"
+            }
+          }
+        },
+        "user_id": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "version": {
+          "index": "not_analyzed",
+          "type": "string"
+        }
+      }
+    },
+    "date_time": {
+      "type": "long"
+    },
+    "event_type": {
+      "type": "long"
+    },
+    "event_type_name": {
+      "index": "not_analyzed",
+      "type": "string"
+    },
+    "geoip": {
+      "dynamic": "true",
+      "properties": {
+        "ip": {
+          "type": "ip"
+        },
+        "latitude": {
+          "type": "float"
+        },
+        "location": {
+          "type": "geo_point"
+        },
+        "longitude": {
+          "type": "float"
+        }
+      }
+    },
+    "host": {
+      "index": "not_analyzed",
+      "type": "string"
+    },
+    "path": {
+      "index": "not_analyzed",
+      "type": "string"
+    },
+    "tags": {
+      "index": "not_analyzed",
+      "type": "string"
+    },
+    "type": {
+      "index": "not_analyzed",
+      "type": "string"
+    }
+  }
+}

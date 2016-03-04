@@ -87,40 +87,40 @@ retried_request(:delete, "#{durl}/#{didx}") \
 	if remove && retried_request(:get, "#{durl}/#{didx}/_recovery")
 
 # (re)create destination index
-unless retried_request(:get, "#{durl}/#{didx}/_recovery")
-	# obtain the original index settings first
-	unless settings = retried_request(:get, "#{surl}/#{sidx}/_settings")
-		warn "Failed to obtain original index '#{surl}/#{sidx}' settings!"
-		exit 1
-	end
-	settings = Oj.load settings
-	sidx = settings.keys[0]
-	settings[sidx].delete 'index.version.created'
-	printf 'Creating \'%s/%s\' index with settings from \'%s/%s\'... ',
-			durl, didx, surl, sidx
-	unless retried_request(:post, "#{durl}/#{didx}", Oj.dump(settings[sidx]))
-		puts 'FAILED!'
-		exit 1
-	else
-		puts 'OK.'
-	end
-	unless mappings = retried_request(:get, "#{surl}/#{sidx}/_mapping")
-		warn "Failed to obtain original index '#{surl}/#{sidx}' mappings!"
-		exit 1
-	end
-	mappings = Oj.load mappings
-	mappings[sidx].each_pair{|type, mapping|
-		printf 'Copying mapping \'%s/%s/%s\'... ', durl, didx, type
-		unless retried_request(:put, "#{durl}/#{didx}/#{type}/_mapping",
-				Oj.dump({type => mapping}))
-			puts 'FAILED!'
-			exit 1
-		else
-			puts 'OK.'
-		end
-	}
-	
-end
+#unless retried_request(:get, "#{durl}/#{didx}/_recovery")
+#	# obtain the original index settings first
+#	unless settings = retried_request(:get, "#{surl}/#{sidx}/_settings")
+#		warn "Failed to obtain original index '#{surl}/#{sidx}' settings!"
+#		exit 1
+#	end
+#	settings = Oj.load settings
+#	sidx = settings.keys[0]
+#	settings[sidx].delete 'index.version.created'
+#	printf 'Creating \'%s/%s\' index with settings from \'%s/%s\'... ',
+#			durl, didx, surl, sidx
+#	unless retried_request(:post, "#{durl}/#{didx}", Oj.dump(settings[sidx]))
+#		puts 'FAILED!'
+#		exit 1
+#	else
+#		puts 'OK.'
+#	end
+#	unless mappings = retried_request(:get, "#{surl}/#{sidx}/_mapping")
+#		warn "Failed to obtain original index '#{surl}/#{sidx}' mappings!"
+#		exit 1
+#	end
+#	mappings = Oj.load mappings
+#	mappings[sidx].each_pair{|type, mapping|
+#		printf 'Copying mapping \'%s/%s/%s\'... ', durl, didx, type
+#		unless retried_request(:put, "#{durl}/#{didx}/#{type}/_mapping",
+#				Oj.dump({type => mapping}))
+#			puts 'FAILED!'
+#			exit 1
+#		else
+#			puts 'OK.'
+#		end
+#	}
+#	
+#end
 
 printf "Copying '%s/%s' to '%s/%s'... \n", surl, sidx, durl, didx
 t, done = Time.now, 0
