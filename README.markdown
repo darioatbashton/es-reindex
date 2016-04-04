@@ -22,5 +22,5 @@ You can install the requirements locally via `bundler`:
 
 Refer to script's help:
 
-    $ ./reindex "ES host"  "hostname" "new index version number"
+    $ ./reindex "ES host"  "indexname" "new index version number"
 
